@@ -1,5 +1,8 @@
+@import "styles/abstracts/variables";
+
 .App {
   text-align: center;
+  color: $brand-color;
 }
 
 .App-logo {

@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+//// Responsive device width
+//$xl: 1399px;
+//$lg: 1199px;
+//$md: 991px;
+//$sm: 767px;
+//$xs: 575px;
+//$xxs: 460px;
+//$xxxs: 380px;
+$breakpoints: (
+    'xl': 1399px,
+    'lg': 1199px,
+    'md': 991px,
+    'sm': 767px,
+    'xs': 575px,
+    'xxs': 460px,
+    'exs': 360px,
+);
+
+
+@mixin media($media){
+  @media all and (max-width: #{map-get($breakpoints,#{$media})}){
+    @content
+  }
+}
+
+@mixin max-media-width($media-width){
+  @media all and (max-width: #{$media-width}px){
+    @content
+  }
+}
+@mixin min-media-width($media-width){
+  @media all and (min-width: #{$media-width}px){
+    @content
+  }
+}
