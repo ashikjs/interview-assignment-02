@@ -1,11 +1,11 @@
 import React from 'react';
-import './Home.scss';
+import RestaurantFinder from '../../components/restaurant-finder';
 
 function Home() {
     return (
         <div className="Home">
             <main className="wrapper-container">
-                <h1>Home Page</h1>
+                <RestaurantFinder />
             </main>
         </div>
     );
