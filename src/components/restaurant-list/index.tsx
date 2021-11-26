@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { List } from 'antd';
 import { RestaurantItem } from '../restaurant-item';
+import RestaurantDetails from '../restaurant-details';
 
 function RestaurantList() {
+    const [visible, setVisible] = useState(false);
     const restaurants = [
         {
             id: '4bf390083f86c9b6ce4ab21c',
@@ -58,17 +61,33 @@ function RestaurantList() {
         },
     ];
 
+    const showRestaurantDetails = () => {
+        setVisible(true);
+    };
+    const onCloseRestaurantDetails = () => {
+        setVisible(false);
+    };
+
     return (
         <section>
             <List
+                grid={{ gutter: 30, xs: 1, sm: 1, md: 2, lg: 2, xl: 3, xxl: 3 }}
                 itemLayout="vertical"
                 dataSource={restaurants}
-                renderItem={(restaurant) => (
-                    <List.Item>
-                        <RestaurantItem restaurant={restaurant} />
+                renderItem={(restaurant, index) => (
+                    <List.Item key={index} style={{ marginBottom: '30px' }}>
+                        <RestaurantItem
+                            restaurant={restaurant}
+                            openRestaurantDetails={showRestaurantDetails}
+                        />
                     </List.Item>
                 )}
             />
+            {visible ? (
+                <RestaurantDetails visible={visible} onClose={onCloseRestaurantDetails} />
+            ) : (
+                ''
+            )}
         </section>
     );
 }

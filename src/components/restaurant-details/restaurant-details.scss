@@ -1,0 +1,37 @@
+.restaurant-details-drawer {
+  .ant-drawer-content-wrapper {
+    max-width: 100%;
+  }
+  .ant-drawer-body {
+    padding: 0;
+  }
+
+  .restaurant-details {
+    padding: 30px;
+
+    h2.ant-typography {
+      margin-bottom: 5px;
+    }
+
+    h5.ant-typography {
+      margin-top: 0;
+    }
+
+    .categories {
+      padding: 10px 0 15px 0;
+      .ant-avatar.ant-avatar-image {
+        background-color: #ccc;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        font-size: 16px;
+        line-height: 32px;
+      }
+    }
+  }
+}

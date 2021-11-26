@@ -12,7 +12,7 @@ export const RestaurantItem = (props: any) => {
             description={
                 <>
                     <p style={{ marginBottom: '5px' }}>{address}</p>
-                    <Button type="primary" size={'small'}>
+                    <Button type="primary" size={'small'} onClick={props.openRestaurantDetails}>
                         Details
                     </Button>
                 </>
