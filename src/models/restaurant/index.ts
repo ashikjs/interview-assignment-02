@@ -1,6 +1,6 @@
 export interface RestaurantState {
     restaurants: Restaurant[];
-    selectedRestaurant: Restaurant;
+    selectedRestaurant?: Restaurant | null;
 }
 
 export interface Restaurant {
