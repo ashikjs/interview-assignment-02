@@ -12,10 +12,10 @@ export class UpdateLocationGeocodeType implements Action<Geocode> {
     constructor(public payload: Geocode) {}
 }
 
-export class UpdateLocationRadiusType implements Action<Geocode> {
+export class UpdateLocationRadiusType implements Action<number> {
     readonly type = LocationActions.UPDATE_LOCATION_RADIUS;
 
-    constructor(public payload: Geocode) {}
+    constructor(public payload: number) {}
 }
 
 export type LocationActionTypes = UpdateLocationRadiusType | UpdateLocationGeocodeType;
