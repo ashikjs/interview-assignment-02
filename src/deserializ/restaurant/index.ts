@@ -14,7 +14,7 @@ export class RestaurantDeserialize implements Restaurant {
 
     details?: string;
 
-    category?: string;
+    category: string;
 
     contact?: string;
 

@@ -1,14 +1,23 @@
 import React from 'react';
-
-import { List } from 'antd';
-import { RestaurantItem } from '../restaurant-item';
 import { useSelector } from 'react-redux';
+import { List } from 'antd';
+
+// @Component
+import { RestaurantItem } from '../restaurant-item';
+
+// @Model
 import { Restaurant } from '../../models/restaurant';
 
 function RestaurantList(props: any) {
     let restaurants: Restaurant[];
     restaurants = useSelector((state: any) => state.restaurant.restaurants);
-
+    if (props.skey) {
+        restaurants = restaurants.filter(
+            (restaurant) =>
+                restaurant.name?.toLowerCase().indexOf(props.skey.toLowerCase()) !== -1 ||
+                restaurant.category?.toLowerCase().indexOf(props.skey.toLowerCase()) !== -1
+        );
+    }
     return (
         <section>
             <List

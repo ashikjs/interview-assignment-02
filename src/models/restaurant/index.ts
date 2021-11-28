@@ -11,8 +11,8 @@ export interface Restaurant {
     address: string;
     iconUrl: string;
     geocode: Geocode;
+    category: string;
     details?: string;
-    category?: string;
     contact?: string;
     popularity?: string;
     price?: string;

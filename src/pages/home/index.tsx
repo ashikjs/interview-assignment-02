@@ -24,10 +24,13 @@ const geocode = {
 
 function Home() {
     const [showResDetails, setShowResDetails] = useState(false);
-
+    const [searchKey, setSearchKey] = useState(false);
     const dispatch = useDispatch();
     const showRestaurantDetails = () => {
         setShowResDetails(true);
+    };
+    const searchRestaurantByName = (sKey: any) => {
+        setSearchKey(sKey);
     };
     const onCloseRestaurantDetails = () => {
         setShowResDetails(false);
@@ -50,8 +53,11 @@ function Home() {
 
     return (
         <div className="Home wrapper-container">
-            <RestaurantFinder openRestaurantDetails={showRestaurantDetails} />
-            <RestaurantList openRestaurantDetails={showRestaurantDetails} />
+            <RestaurantFinder
+                openRestaurantDetails={showRestaurantDetails}
+                onSearchRestaurant={searchRestaurantByName}
+            />
+            <RestaurantList openRestaurantDetails={showRestaurantDetails} skey={searchKey} />
             {showResDetails ? (
                 <RestaurantDetails visible={showResDetails} onClose={onCloseRestaurantDetails} />
             ) : (
