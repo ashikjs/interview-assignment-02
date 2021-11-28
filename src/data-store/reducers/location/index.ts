@@ -1,16 +1,19 @@
-import { LocationState } from '../../../models/location';
+import { LocationConfiguration } from '../../../models/location';
 import * as fromLocationActions from '../../actions/location';
 
-const initialState: LocationState = {
+const initialState: LocationConfiguration = {
     geocode: {
         latitude: 0,
         longitude: 0,
     },
     radius: 0,
+    categories: 13000,
+    sort: 'RELEVANCE',
+    limit: 50,
 };
 
 export default function locationReducer(
-    state: LocationState = initialState,
+    state: LocationConfiguration = initialState,
     action: fromLocationActions.LocationActionTypes
 ) {
     switch (action.type) {

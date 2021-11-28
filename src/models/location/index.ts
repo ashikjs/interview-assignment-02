@@ -1,6 +1,9 @@
-export interface LocationState {
+export interface LocationConfiguration {
     geocode: Geocode;
     radius: number;
+    categories?: number;
+    sort?: string;
+    limit?: number;
 }
 
 export interface Geocode {

@@ -3,64 +3,13 @@ import React, { useState } from 'react';
 import { List } from 'antd';
 import { RestaurantItem } from '../restaurant-item';
 import RestaurantDetails from '../restaurant-details';
+import { useSelector } from 'react-redux';
+import { Restaurant } from '../../models/restaurant';
 
 function RestaurantList() {
     const [visible, setVisible] = useState(false);
-    const restaurants = [
-        {
-            id: '4bf390083f86c9b6ce4ab21c',
-            imgUrl: 'https://ss3.4sqi.net/img/categories_v2/food/default_120.png',
-            distance: 1404,
-            geocodes: {
-                main: {
-                    latitude: 23.793330075666095,
-                    longitude: 90.40322404501005,
-                },
-            },
-            address: 'House #15, Road #17, Block #C, Banani',
-            name: 'Rock Restaurant',
-        },
-        {
-            id: '4bf390083f86c9b6ce4ab21c',
-            imgUrl: 'https://ss3.4sqi.net/img/categories_v2/nightlife/pub_120.png',
-            distance: 1404,
-            geocodes: {
-                main: {
-                    latitude: 23.793330075666095,
-                    longitude: 90.40322404501005,
-                },
-            },
-            address: 'House #15, Road #17, Block #C, Banani',
-            name: 'Ruchita Bar & Restaurant',
-        },
-        {
-            id: '4bf390083f86c9b6ce4ab21c',
-            imgUrl: 'https://ss3.4sqi.net/img/categories_v2/food/asian_120.png',
-            distance: 1404,
-            geocodes: {
-                main: {
-                    latitude: 23.793330075666095,
-                    longitude: 90.40322404501005,
-                },
-            },
-            address: 'House #15, Road #17, Block #C, Banani',
-            name: 'Star Kabab & Restaurant',
-        },
-        {
-            id: '4bf390083f86c9b6ce4ab21c',
-            imgUrl: 'https://ss3.4sqi.net/img/categories_v2/food/indian_120.png',
-            distance: 1404,
-            geocodes: {
-                main: {
-                    latitude: 23.793330075666095,
-                    longitude: 90.40322404501005,
-                },
-            },
-            address: 'House #15, Road #17, Block #C, Banani',
-            name: 'Star Kabab & Restaurant',
-        },
-    ];
-
+    let restaurants: Restaurant[];
+    restaurants = useSelector((state: any) => state.restaurant.restaurants);
     const showRestaurantDetails = () => {
         setVisible(true);
     };

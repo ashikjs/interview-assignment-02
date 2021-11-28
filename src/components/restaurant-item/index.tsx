@@ -3,11 +3,11 @@ import { Avatar, Button, List } from 'antd';
 import './Restaurant-item.scss';
 
 export const RestaurantItem = (props: any) => {
-    let { name, imgUrl, address } = props?.restaurant;
+    let { name, iconUrl, address } = props?.restaurant;
     return (
         <List.Item.Meta
             className="restaurant-item"
-            avatar={<Avatar src={imgUrl} size={80} shape="square" />}
+            avatar={<Avatar src={iconUrl} size={80} shape="square" />}
             title={<span>{name}</span>}
             description={
                 <>
