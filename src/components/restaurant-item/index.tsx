@@ -1,5 +1,6 @@
 import React from 'react';
-import { Avatar, Button, List } from 'antd';
+import { Avatar, Button, List, Typography } from 'antd';
+const { Paragraph } = Typography;
 import './Restaurant-item.scss';
 import { useDispatch } from 'react-redux';
 import { RestaurantActions } from '../../data-store/actions/restaurant';
@@ -17,10 +18,10 @@ export const RestaurantItem = (props: any) => {
         <List.Item.Meta
             className="restaurant-item"
             avatar={<Avatar src={iconUrl} size={80} shape="square" />}
-            title={<span>{name}</span>}
+            title={<Paragraph ellipsis={true}>{name}</Paragraph>}
             description={
                 <>
-                    <p style={{ marginBottom: '5px' }}>{address}</p>
+                    <Paragraph ellipsis={true}>{address}</Paragraph>
                     <Button type="primary" size={'small'} onClick={openRestaurantDetails}>
                         Details
                     </Button>
