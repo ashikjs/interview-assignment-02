@@ -29,7 +29,7 @@ function Home() {
     function getAllRestaurants() {
         getRestaurant()
             .then((restaurants: Restaurant[]) => {
-                dispatch({ type: RestaurantActions.RESTAURANT_LIST_SUCCESS, payload: restaurants });
+                dispatch({ type: RestaurantActions.RESTAURANT_LIST, payload: restaurants });
             })
             .catch((error) => {
                 console.info('GetAllRestaurants::', error);

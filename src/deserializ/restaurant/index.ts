@@ -24,7 +24,7 @@ export class RestaurantDeserialize implements Restaurant {
 
     rating?: string;
 
-    distance?: number;
+    distance?: string;
 
     constructor(restaurantBackendData: any) {
         this.id = restaurantBackendData.fsq_id;
@@ -34,7 +34,7 @@ export class RestaurantDeserialize implements Restaurant {
         this.iconUrl = restaurantBackendData.categories[0]
             ? this.generateCategoryIconUrl(restaurantBackendData.categories[0])
             : '';
-        this.distance = restaurantBackendData.distance;
+        this.distance = (restaurantBackendData.distance / 1000).toFixed(2);
         this.category = restaurantBackendData.categories[0]
             ? restaurantBackendData.categories[0].name
             : null;

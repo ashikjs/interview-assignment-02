@@ -17,5 +17,5 @@ export interface Restaurant {
     popularity?: string;
     price?: string;
     rating?: string;
-    distance?: number;
+    distance?: string;
 }

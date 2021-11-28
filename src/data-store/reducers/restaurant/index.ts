@@ -11,10 +11,18 @@ export default function restaurantReducer(
     action: fromRestaurantActions.RestaurantActionTypes
 ) {
     switch (action.type) {
-        case fromRestaurantActions.RestaurantActions.RESTAURANT_LIST_SUCCESS: {
+        case fromRestaurantActions.RestaurantActions.RESTAURANT_LIST: {
             return {
                 ...state,
                 restaurants: action.payload,
+            };
+        }
+        case fromRestaurantActions.RestaurantActions.SELECTED_RANDOM_RESTAURANT: {
+            const randomRIndex = Math.floor(Math.random() * state.restaurants.length);
+
+            return {
+                ...state,
+                selectedRestaurant: state.restaurants[randomRIndex],
             };
         }
         case fromRestaurantActions.RestaurantActions.SELECTED_RESTAURANT: {
