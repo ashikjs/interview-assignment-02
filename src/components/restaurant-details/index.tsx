@@ -14,7 +14,18 @@ function RestaurantDetails(props: any) {
     const restaurant: Restaurant = useSelector((state: any) => state.restaurant.selectedRestaurant);
 
     const { visible, onClose } = props;
-    const { name, category, geocode, address, popularity, price, rating, iconUrl } = restaurant;
+    const {
+        name,
+        category,
+        geocode,
+        address,
+        popularity,
+        price,
+        rating,
+        iconUrl,
+        distance,
+        details,
+    } = restaurant;
     return (
         <Drawer
             className={'restaurant-details-drawer'}
@@ -29,13 +40,18 @@ function RestaurantDetails(props: any) {
             <div className="restaurant-details">
                 <Title level={2}>{name}</Title>
                 <Title level={5}>{address}</Title>
-
+                {!!details && <p>{details}</p>}
                 <Space size={10} className="categories">
                     <Avatar src={iconUrl} />
                     <span>{category}</span>
                 </Space>
 
                 <ul>
+                    {!!distance && (
+                        <li>
+                            <b>Distance:</b> {distance}Km
+                        </li>
+                    )}
                     {!!popularity && (
                         <li>
                             <b>Popularity:</b> {popularity}
