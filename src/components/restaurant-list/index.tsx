@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { List } from 'antd';
 import { RestaurantItem } from '../restaurant-item';
-import RestaurantDetails from '../restaurant-details';
 import { useSelector } from 'react-redux';
 import { Restaurant } from '../../models/restaurant';
 
-function RestaurantList() {
-    const [visible, setVisible] = useState(false);
+function RestaurantList(props: any) {
     let restaurants: Restaurant[];
     restaurants = useSelector((state: any) => state.restaurant.restaurants);
-    const showRestaurantDetails = () => {
-        setVisible(true);
-    };
-    const onCloseRestaurantDetails = () => {
-        setVisible(false);
-    };
 
     return (
         <section>
@@ -27,16 +19,11 @@ function RestaurantList() {
                     <List.Item key={index} style={{ marginBottom: '30px' }}>
                         <RestaurantItem
                             restaurant={restaurant}
-                            openRestaurantDetails={showRestaurantDetails}
+                            openRestaurantDetails={props.openRestaurantDetails}
                         />
                     </List.Item>
                 )}
             />
-            {visible ? (
-                <RestaurantDetails visible={visible} onClose={onCloseRestaurantDetails} />
-            ) : (
-                ''
-            )}
         </section>
     );
 }

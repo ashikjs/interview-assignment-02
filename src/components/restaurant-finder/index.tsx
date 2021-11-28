@@ -5,11 +5,12 @@ import { useDispatch } from 'react-redux';
 import './Restaurant-finder.scss';
 import { RestaurantActions } from '../../data-store/actions/restaurant';
 
-function RestaurantFinder() {
+function RestaurantFinder(props: any) {
     const dispatch = useDispatch();
     const isSearchLoading: boolean = false;
     const getRandomRestaurant = () => {
         dispatch({ type: RestaurantActions.SELECTED_RANDOM_RESTAURANT, payload: '' });
+        props.openRestaurantDetails();
     };
     return (
         <section>

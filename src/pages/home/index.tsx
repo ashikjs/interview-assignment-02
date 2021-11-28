@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // @Components
@@ -14,6 +14,7 @@ import { Restaurant } from '../../models/restaurant';
 
 // @Service
 import { getRestaurant } from '../../share/services/restaurant';
+import RestaurantDetails from '../../components/restaurant-details';
 
 const radius = 300;
 const geocode = {
@@ -22,7 +23,16 @@ const geocode = {
 };
 
 function Home() {
+    const [showResDetails, setShowResDetails] = useState(false);
+
     const dispatch = useDispatch();
+    const showRestaurantDetails = () => {
+        setShowResDetails(true);
+    };
+    const onCloseRestaurantDetails = () => {
+        setShowResDetails(false);
+    };
+
     dispatch({ type: LocationActions.UPDATE_LOCATION_GEOCODE, payload: geocode });
     dispatch({ type: LocationActions.UPDATE_LOCATION_RADIUS, payload: radius });
 
@@ -40,8 +50,13 @@ function Home() {
 
     return (
         <div className="Home wrapper-container">
-            <RestaurantFinder />
-            <RestaurantList />
+            <RestaurantFinder openRestaurantDetails={showRestaurantDetails} />
+            <RestaurantList openRestaurantDetails={showRestaurantDetails} />
+            {showResDetails ? (
+                <RestaurantDetails visible={showResDetails} onClose={onCloseRestaurantDetails} />
+            ) : (
+                ''
+            )}
         </div>
     );
 }
