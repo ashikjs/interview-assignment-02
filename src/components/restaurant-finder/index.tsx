@@ -16,14 +16,19 @@ function RestaurantFinder(props: any) {
     return (
         <section>
             <div className="restaurant-finder">
-                <Button type="primary" size="large" onClick={getRandomRestaurant}>
+                <Button
+                    type="primary"
+                    size="large"
+                    onClick={getRandomRestaurant}
+                    data-testid="randomRestaurant"
+                >
                     Pick a Random Restaurant
                 </Button>
                 <span className="alter-text">Or</span>
                 <Input
                     allowClear
                     onChange={onChange}
-                    placeholder="Search restaurant by name"
+                    placeholder="Search by name or category"
                     size="large"
                 />
             </div>
