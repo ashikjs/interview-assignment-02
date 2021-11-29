@@ -1,6 +1,9 @@
 import React from 'react';
+import { Layout } from 'antd';
+
 import './header.scss';
-import { Header } from 'antd/es/layout/layout';
+
+const { Header } = Layout;
 
 function AppHeader() {
     return (

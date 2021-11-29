@@ -23,9 +23,9 @@ const geocode = {
 };
 
 function Home() {
+    const dispatch = useDispatch();
     const [showResDetails, setShowResDetails] = useState(false);
     const [searchKey, setSearchKey] = useState(false);
-    const dispatch = useDispatch();
     const showRestaurantDetails = () => {
         setShowResDetails(true);
     };

@@ -10,7 +10,7 @@ import { Restaurant } from '../../models/restaurant';
 
 function RestaurantList(props: any) {
     let restaurants: Restaurant[];
-    restaurants = useSelector((state: any) => state.restaurant.restaurants);
+    restaurants = useSelector((state: any) => state?.restaurant?.restaurants);
     if (props.skey) {
         restaurants = restaurants.filter(
             (restaurant) =>
