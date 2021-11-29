@@ -42,7 +42,7 @@ function RestaurantDetails(props: any) {
                 <Title level={5}>{address}</Title>
                 {!!details && <p>{details}</p>}
                 <Space size={10} className="categories">
-                    <Avatar src={iconUrl} />
+                    <Avatar src={iconUrl} alt={category} />
                     <span>{category}</span>
                 </Space>
 
