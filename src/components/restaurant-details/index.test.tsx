@@ -49,7 +49,7 @@ describe('Restaurant Details Component test case', () => {
         act(() => {
             render(
                 <Provider store={store}>
-                    <RestaurantDetails visible={true} onClose={() => {}} />
+                    <RestaurantDetails visible={true} />
                 </Provider>,
                 container
             );
@@ -66,5 +66,26 @@ describe('Restaurant Details Component test case', () => {
         ).toBeInTheDocument();
         const categoryImage = screen.getByAltText(new RegExp(mockRestaurantDetails.category, 'i'));
         expect(categoryImage).toHaveAttribute('src', mockRestaurantDetails.iconUrl);
+    });
+
+    it('restaurant details sidebar close button event fire test', () => {
+        let isClosed: boolean = false;
+
+        act(() => {
+            render(
+                <Provider store={store}>
+                    <RestaurantDetails visible={true} onClose={() => (isClosed = !isClosed)} />
+                </Provider>,
+                container
+            );
+        });
+
+        const button = document.querySelector('.ant-drawer-close');
+        expect(isClosed).toBe(false);
+
+        act(() => {
+            button?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        });
+        expect(isClosed).toBe(true);
     });
 });
