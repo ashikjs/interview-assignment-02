@@ -7,7 +7,7 @@ import { RestaurantActions } from '../../data-store/actions/restaurant';
 
 export const RestaurantItem = (props: any) => {
     const dispatch = useDispatch();
-    let { name, iconUrl, address } = props?.restaurant;
+    let { name, iconUrl, address, category } = props?.restaurant;
 
     const openRestaurantDetails = () => {
         props.openRestaurantDetails();
@@ -17,7 +17,7 @@ export const RestaurantItem = (props: any) => {
     return (
         <List.Item.Meta
             className="restaurant-item"
-            avatar={<Avatar src={iconUrl} size={80} shape="square" />}
+            avatar={<Avatar src={iconUrl} size={80} shape="square" alt={category} />}
             title={<Paragraph ellipsis={true}>{name}</Paragraph>}
             description={
                 <>
