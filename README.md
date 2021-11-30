@@ -1,8 +1,21 @@
-# Getting Started with Create React App
+# Monstar Lab, Inc - Restaurant Finder Coding Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+**Clone the repository or Download**
+```bash
+git clone git@github.com:ashikjs/interview-assignment-02.git
+```
+To install dependencies open the project directory into terminal and run this command.
+```bash
+npm install
+```
+
+**Env file configuration**
+
+Add this API key to `.env.developemnt` for development and `.env.production` for production `REACT_APP_MAP_API_KEY=***`.
+
+**To serve the application the below commands**
 
 In the project directory, you can run:
 
@@ -29,18 +42,35 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Technical Specification
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+High performance, Unidirectional data flow, and a Small learning curve influence me to choose reactjs for this project,
+another reason is Monstar Lab, Inc was a high preference to use reactjs for this project. Redux for keeping consistently 
+behave with high powerful state management when the application goes for larger scale. To develop faster and interactive
+UI/UX used React UI library `ant`, it also gives some extra benefits like high-quality React components, TypeScript with
+predictable static types and design resources and development tools, etc. Also used reactjs default included testing 
+tools and officially recommended tools Jest testing framework to test application or write unit testing.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Few more words about project folder structure and coding here you can see a shared folder to use commonly shareable services,
+components, modules, etc. Layout for project basic layout systems like header, footer and sidebar, etc. Middleware for debugging
+or track/log redux state changed and dispatch.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Maybe it would have been better if I could have been ensured 100% test case, redux selector used, data fetching loading
+state, make API call with pagination, file path Alice and configuration option to change location and radius from UI
+interaction etc due to the time limitation I am unable to do ensure all of those right now.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- CSS folder architecture followed by SMACSS but CSS code writing as OOCSS.
+- Used Redux for state management.
+- React UI library `ant` that contains a set of high-quality components and demos for building rich, interactive user interfaces.
+- Follow the Airbnb design system for JS code writing.
+- Used CSS preprocessor SCSS for style.
+- Used Prettier for code formatting concerns.
+- Used Eslint to be flexible and configurable for the use case.
+- Used Jest testing framework to ensure the correctness of any javaScript codebase.
 
-## Learn More
+## Disclaimer 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Sorry to say I was unable to use [Foursquare.com](https://developer.foursquare.com) place API due to the CORS issue.
+Still, I was able to call API that's from Postman. So I make a JSON DB (23 restaurants with 3km radios of Monstar Lab
+which of those get from foursquare API calls by postman) to Github and call it by
+[my-json-server.typicode.com](https://my-json-server.typicode.com/) to make mock or dummy data response all of those.  
