@@ -70,7 +70,7 @@ describe('Restaurant Finder Component test case', () => {
         expect(isClickedRandomRestaurantButton).toBe(true);
     });
 
-    it('check on changes restaurant search input value event fire', () => {
+    it('check on changes restaurant search input value event fire', async () => {
         let searchKeyWord: string = '';
         const inputValue: string = 'restaurant';
         act(() => {
@@ -85,6 +85,10 @@ describe('Restaurant Finder Component test case', () => {
         });
 
         userEvent.type(screen.getByPlaceholderText(/Search by name or category/i), inputValue);
-        expect(searchKeyWord).toBe(inputValue);
+
+        // Set debounce time for search input one change
+        setTimeout(() => {
+            expect(searchKeyWord).toBe(inputValue);
+        }, 600);
     });
 });
