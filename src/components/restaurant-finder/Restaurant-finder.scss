@@ -1,3 +1,5 @@
+@import "styles/abstracts/mixins";
+
 .restaurant-finder {
   display: flex;
   max-width: 700px;
@@ -8,5 +10,12 @@
     width: 50px;
     text-align: center;
     font-weight: 600;
+
+    @include media('xs') {
+      padding: 10px 0;
+    }
+  }
+  @include media('xs') {
+    flex-direction: column;
   }
 }

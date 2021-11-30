@@ -36,7 +36,9 @@ function RestaurantDetails(props: any) {
             visible={visible}
             style={{ padding: 0 }}
         >
-            <GoogleMapView lat={geocode.latitude} lng={geocode.longitude} zoom={mapZoomLevel} />
+            <div className="map-wrapper">
+                <GoogleMapView lat={geocode.latitude} lng={geocode.longitude} zoom={mapZoomLevel} />
+            </div>
             <div className="restaurant-details">
                 <Title level={2}>{name}</Title>
                 <Title level={5}>{address}</Title>
