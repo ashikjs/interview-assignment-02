@@ -1,8 +1,12 @@
 import React from 'react';
 import { Avatar, Button, List, Typography } from 'antd';
 const { Paragraph } = Typography;
-import './Restaurant-item.scss';
 import { useDispatch } from 'react-redux';
+
+// @Style
+import './Restaurant-item.scss';
+
+// @Component
 import { RestaurantActions } from '../../data-store/actions/restaurant';
 
 export const RestaurantItem = (props: any) => {
