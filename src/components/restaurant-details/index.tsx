@@ -73,4 +73,4 @@ function RestaurantDetails(props: any) {
     );
 }
 
-export default RestaurantDetails;
+export default React.memo(RestaurantDetails);

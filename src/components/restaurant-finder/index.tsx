@@ -42,4 +42,4 @@ function RestaurantFinder(props: any) {
     );
 }
 
-export default RestaurantFinder;
+export default React.memo(RestaurantFinder);

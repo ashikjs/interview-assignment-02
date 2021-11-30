@@ -37,4 +37,4 @@ function RestaurantList(props: any) {
     );
 }
 
-export default RestaurantList;
+export default React.memo(RestaurantList);

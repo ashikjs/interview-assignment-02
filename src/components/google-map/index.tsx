@@ -13,4 +13,4 @@ function GoogleMapView(props: any) {
     );
 }
 
-export default GoogleMapView;
+export default React.memo(GoogleMapView);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // @Components
@@ -26,30 +26,31 @@ function Home() {
     const dispatch = useDispatch();
     const [showResDetails, setShowResDetails] = useState(false);
     const [searchKey, setSearchKey] = useState(false);
-    const showRestaurantDetails = () => {
+    const showRestaurantDetails = useCallback(() => {
         setShowResDetails(true);
-    };
-    const searchRestaurantByName = (sKey: any) => {
+    }, []);
+    const searchRestaurantByName = useCallback((sKey: any) => {
         setSearchKey(sKey);
-    };
-    const onCloseRestaurantDetails = () => {
+    }, []);
+    const onCloseRestaurantDetails = useCallback(() => {
         setShowResDetails(false);
-    };
+    }, []);
 
-    dispatch({ type: LocationActions.UPDATE_LOCATION_GEOCODE, payload: geocode });
-    dispatch({ type: LocationActions.UPDATE_LOCATION_RADIUS, payload: radius });
+    useEffect(() => {
+        dispatch({ type: LocationActions.UPDATE_LOCATION_GEOCODE, payload: geocode });
+        dispatch({ type: LocationActions.UPDATE_LOCATION_RADIUS, payload: radius });
 
-    function getAllRestaurants() {
-        getRestaurant()
-            .then((restaurants: Restaurant[]) => {
-                dispatch({ type: RestaurantActions.RESTAURANT_LIST, payload: restaurants });
-            })
-            .catch((error) => {
-                console.info('GetAllRestaurants::', error);
-            });
-    }
-
-    getAllRestaurants();
+        function getAllRestaurants() {
+            getRestaurant()
+                .then((restaurants: Restaurant[]) => {
+                    dispatch({ type: RestaurantActions.RESTAURANT_LIST, payload: restaurants });
+                })
+                .catch((error) => {
+                    console.info(error);
+                });
+        }
+        getAllRestaurants();
+    }, []);
 
     return (
         <div className="Home wrapper-container">
